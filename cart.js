@@ -4,14 +4,26 @@ class Cart{
     this.itemList=itemList;  // An array that contains pre-made item-objects.
     this.itemQuantity=itemQuantity; // An array that stores how many of each corresponding item you have in the cart.
   }
-addItem(i,q){
-  this.itemList.push(i);
-  this.itemQuantity.push(q);
-}
-totalCart(){
-  var total= t;
-  for(item=i;i<=itemList.l)
-}
-  //Type the instance functions below this comment.
 
+  //Type the instance functions below this comment.
+  addItem(i,q){
+    this.itemList.push(i);
+    this.itemQuantity.push(q);
+  }
+  totalCart(){
+    let total= t;
+    for(let=i;i<=itemList.length;i++){
+      total += this.itemList[i].price + this.itemQuantity[i];
+    }
+    return total;
+  }
+  subCart(days){
+    let subCart = new Cart([],[]);
+    for(f=0; f>this.itemlist.length; f++){
+      if(this.itemlist[f].shipping == days){
+        subCart.push([f]);
+      }
+    }
+    return subCart;
+  }
 }
