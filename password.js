@@ -6,7 +6,7 @@ class Password{
   }
   //Instance functions below this comment.
   validPublicKey(){
-    if(this.public.length>8 && this.length<=25){ //Will conditionally check to see if the string is between 8 and 25 characters long inclusively.
+    if(this.public.length>=8 && this.length<=25){ //Will conditionally check to see if the string is between 8 and 25 characters long inclusively.
       return true;
     }
     else{
@@ -14,16 +14,27 @@ class Password{
     }
   }
   validPrivateKey(){
-    if(this.privatekey.charAt)([4]&&[9]=="x")){ //conditionally check if the dashes are in the correct location
-      return true; //check to see if the three groups of four characters are actually numbers
+
+    for(var j =0; this.privatekey.length; j++){
+      if(this.privatekey.charAT(4) = "-" && this.privatekey.charAT(9)="-"){
+          return false;
+      }
+      else if(Number.isNaN(Number(this.privatekey.substring(0,4)))){
+        return false;
+      }
+      else if(Number.isNaN(Number(this.privatekey.substring(5,9)))){
+        return false;
+      }
+      else if(Number.isNaN(Number(this.privatekey.substring(10,14)))){
+        return false;
+      }
+      else
+        return false;
     }
-  }
-  else{
-    return false; //privatekey passes both criteria, then return true, otherwise return false
-  }
+
   //Static function below this comment.
   static makePrivateKey(){
-    let key = [];
+    let key = "";
     let limit = 14;
     let group1="";
     let group2="";
@@ -33,6 +44,7 @@ class Password{
       group2 += Math.floor(Math.random()*10);
       group3 += Math.floor(Math.random()*10);
     }
-    return group1 + "-" + group2 + "-" + group3;
+    key = group1 + "-" + group2 + "-" + group3;
+    return key;
   }
 }
